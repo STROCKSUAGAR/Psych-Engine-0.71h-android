@@ -15,6 +15,8 @@ import states.editors.MasterEditorMenu;
 import options.OptionsState;
 import backend.Song;
 import states.PlayState;
+import states.LoadingState;
+
 
 class MainMenuState extends MusicBeatState
 {
@@ -45,8 +47,15 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-
-		PlayState.SONG = Song.loadFromJson("menu");
+		
+		var name = "menu";
+		var difficultyNum = 1
+		var poop = Highscore.formatSong(name, difficultyNum);
+			PlayState.SONG = Song.loadFromJson(poop, name);
+			PlayState.storyDifficulty = difficultyNum;
+//			game.persistentUpdate = false;
+		
+//		PlayState.SONG = Song.loadFromJson("menu");
 						
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();
@@ -226,7 +235,7 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new PlayState());
+										LoadingState.loadAndSwitchState(new PlayState());
 									#if MODS_ALLOWED
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());

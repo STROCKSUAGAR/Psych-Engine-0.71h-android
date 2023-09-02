@@ -50,7 +50,7 @@ class MainMenuState extends MusicBeatState
 		#end
 		
 		var name = "menu";
-		var difficultyNum = 1
+		var difficultyNum = 1;
 		var poop = Highscore.formatSong(name, difficultyNum);
 			PlayState.SONG = Song.loadFromJson(poop, name);
 			PlayState.storyDifficulty = difficultyNum;

@@ -13,6 +13,7 @@ import lime.app.Application;
 import objects.AchievementPopup;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import Song.SwagSong;
 
 class MainMenuState extends MusicBeatState
 {
@@ -44,8 +45,7 @@ class MainMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		var StateCurSong:String = 'menu';
-		PlayState.SONG = StateCurSong;
+		PlayState.SONG = Song.loadFromJson("menu");
 						
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();

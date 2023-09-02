@@ -2349,7 +2349,7 @@ class PlayState extends MusicBeatState
                 		MusicBeatState.androidc.y = 720;				
             		#end
             		
-					MusicBeatState.switchState(new StoryMenuState());
+					MusicBeatState.switchState(new MainMenuState());
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {
@@ -2399,7 +2399,7 @@ class PlayState extends MusicBeatState
                 		MusicBeatState.androidc.y = 720;				
             	#end
 				
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new MainMenuState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}

@@ -14,7 +14,6 @@ import objects.AchievementPopup;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 import Song
-import Song.SwagSong;
 
 class MainMenuState extends MusicBeatState
 {

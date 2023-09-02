@@ -13,6 +13,8 @@ import lime.app.Application;
 import objects.AchievementPopup;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import backend.Song;
+import states.PlayState;
 
 class MainMenuState extends MusicBeatState
 {
@@ -43,6 +45,8 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+
+		PlayState.SONG = Song.loadFromJson("menu");
 						
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();

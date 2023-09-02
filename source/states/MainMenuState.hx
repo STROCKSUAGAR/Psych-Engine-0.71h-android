@@ -13,7 +13,7 @@ import lime.app.Application;
 import objects.AchievementPopup;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
-import Song
+import Song;
 
 class MainMenuState extends MusicBeatState
 {

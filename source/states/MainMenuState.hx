@@ -13,6 +13,7 @@ import lime.app.Application;
 import objects.AchievementPopup;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import PlayState;
 
 class MainMenuState extends MusicBeatState
 {
@@ -43,7 +44,9 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-
+		
+		PlayState.SONG = "menu";
+						
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
@@ -91,7 +94,7 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var offset:Float = 158 - (Math.max(optionShit.length, 4) - 4) * 80;
+			var offset:Float = 188 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			menuItem.scale.x = scale;
@@ -109,7 +112,7 @@ class MainMenuState extends MusicBeatState
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 		}
-
+  
 		FlxG.camera.follow(camFollow, null, 0);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -222,7 +225,7 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
+										MusicBeatState.switchState(new PlayState());
 									#if MODS_ALLOWED
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());

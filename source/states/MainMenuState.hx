@@ -16,6 +16,7 @@ import options.OptionsState;
 import backend.Song;
 import states.PlayState;
 import states.LoadingState;
+import backend.Highscore;
 
 
 class MainMenuState extends MusicBeatState
